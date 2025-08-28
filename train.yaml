@@ -1,0 +1,45 @@
+train:
+  logdir: ./results
+  # PPO algorithm
+  alg:
+    n_steps: 1024
+    batch_size: 2000
+    n_epochs: 4
+    target_kl: 0.1
+    # ent_coef: 0.01 # For exploration. Range = 0 to 0.01
+
+  # Training over all scenarios
+  epochs: 500 # Number of training loops.
+
+  # Training per scenario
+  train_steps: 10000000
+  checkpoint_freq: 5000 # Save a model every checkpoint_freq calls to env.step().
+  eval_freq: 10 # Evaluate the trained model every eval_freq steps and save the best model.
+  eval_eps: 5 # Number of evaluation epsiodes.
+
+env:
+  num_scenarios: 1000
+  traffic_density: 0.3
+  accident_prob: 0.01
+  random_agent_model: False
+  #agent_policy: EnvInputPolicy
+  #agent_observation: LidarStateObservation
+  manual_control: False 
+  #use_lateral_reward: False
+  #speed_reward: 0.3
+  driving_reward: 0.7
+  success_reward: 25
+  out_of_road_penalty: 15
+  crash_vehicle_penalty: 10
+  crash_object_penalty: 0
+  #crash_human_penalty: 15
+
+vehicle:
+  vehicle_config:
+    show_lidar: False
+    show_side_detector: False
+    lidar:
+      num_lasers: 30
+      num_others: 8
+    side_detector:
+      num_lasers: 0
