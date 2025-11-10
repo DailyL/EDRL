@@ -1,2 +1,2 @@
-# Learning to Drive Ethically: Embedding Moral Reasoning into Autonomous Driving
+# Ethics-Aware Safe Reinforcement Learning for Rare-Event Risk Control in Interactive Urban Driving
 ## Documentation under construction
